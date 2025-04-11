@@ -16,3 +16,9 @@ function Book(name, author, pages, read) {
   // Ensure a unique ID for a newly created Book
   this.id = crypto.randomUUID();
 }
+
+function addBookToLibrary(name, author, pages, read) {
+  const book = new Book(name, author, pages, read);
+
+  bookLibrary.push(book);
+}
