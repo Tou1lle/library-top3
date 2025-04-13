@@ -56,8 +56,8 @@ footer {
   flex-direction: column;
   gap: 1rem;
   color: var(--light-grey);
-  border-radius: 15px;
-  overflow: hidden;
+  /*border-radius: 15px;
+  overflow: hidden;*/
 }
 
 .book p {
@@ -76,4 +76,9 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+button {
+  border: 1px solid var(--light-green);
+  padding: 5px;
 }
