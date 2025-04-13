@@ -4,6 +4,13 @@
   --light-blue: #34495E;
   --dark-green: #16A085;
   --dark-blue: #2C3E50;
+  --happy-font: "atma-happy", Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: "atma-happy";
+  src: url("../fonts/happy_atma/atma-regular-webfont.woff2") format(woff2),
+       url("../fonts/happy_atma/atma-regular-webfont.woff") format(woff);
 }
 
 body {
