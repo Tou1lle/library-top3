@@ -1,4 +1,5 @@
 const bookLibrary = [];
+const libraryDOM = document.querySelector(".library");
 
 /**
  * 
@@ -22,3 +23,38 @@ function addBookToLibrary(name, author, pages, read) {
 
   bookLibrary.push(book);
 }
+
+function displayBooks() {
+  bookLibrary.forEach(book => {
+    const bookDOM = document.createElement("div");
+    const nameDOM = document.createElement("p");
+    const authorDOM = document.createElement("p");
+    const pagesDOM = document.createElement("p");
+    const buttonContainerDOM = document.createElement("div");
+    const buttonReadDOM = document.createElement("button");
+
+    bookDOM.classList.add("book");
+    nameDOM.classList.add("book-name");
+    authorDOM.classList.add("book-author");
+    pagesDOM.classList.add("book-pages");
+    buttonContainerDOM.classList.add("button-container");
+    buttonReadDOM.classList.add("book-read");
+
+    nameDOM.textContent = book.name;
+    authorDOM.textContent = book.author;
+    pagesDOM.textContent = book.pages;
+    buttonReadDOM.textContent = book.read === true ? "READ" : "NOT READ";
+
+    bookDOM.append(nameDOM, authorDOM, pagesDOM, buttonContainerDOM);
+    buttonContainerDOM.append(buttonReadDOM);
+
+    libraryDOM.appendChild(bookDOM);
+  })
+}
+
+/* HARD CODED BOOKS */
+addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
+addBookToLibrary("Game of Thrones", "R. R. Martin", 600, false);
+addBookToLibrary("Blue Lock", "Mangaka", 20, true);
+
+displayBooks();
