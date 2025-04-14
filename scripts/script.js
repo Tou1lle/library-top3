@@ -3,6 +3,14 @@ const libraryDOM = document.querySelector(".library");
 const addBookBtnDOM = document.querySelector("button.add-book");
 const dialogDOM = document.querySelector("dialog");
 
+const inputName = document.querySelector("input#form-name");
+const inputAuthor = document.querySelector("input#form-author");
+const inputPages = document.querySelector("input#book-pages");
+const inputRead = document.querySelector("input[type='checkbox']");
+const addBookBtnForm = document.querySelector("button.form-add");
+const closeForm = document.querySelector("button.form-close");
+const form = document.querySelector("form");
+
 /**
  * 
  * @param {String} name string representation of the name of the Book
@@ -56,6 +64,14 @@ function displayBooks() {
 
 function openDialog() {
   dialogDOM.showModal();
+}
+
+function closeDialog() {
+  dialogDOM.close();
+}
+
+function clearForm() {
+  form.reset();
 }
 
 addBookBtnDOM.addEventListener("click", openDialog);
