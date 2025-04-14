@@ -1,5 +1,7 @@
 const bookLibrary = [];
 const libraryDOM = document.querySelector(".library");
+const addBookBtnDOM = document.querySelector("button.add-book");
+const dialogDOM = document.querySelector("dialog");
 
 /**
  * 
@@ -51,6 +53,12 @@ function displayBooks() {
     libraryDOM.appendChild(bookDOM);
   })
 }
+
+function openDialog() {
+  dialogDOM.showModal();
+}
+
+addBookBtnDOM.addEventListener("click", openDialog);
 
 /* HARD CODED BOOKS */
 addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
