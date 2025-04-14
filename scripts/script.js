@@ -105,3 +105,16 @@ addBookToLibrary("Game of Thrones", "R. R. Martin", 600, false);
 addBookToLibrary("Blue Lock", "Mangaka", 20, true);
 
 displayBooks();
+
+/**
+ * DUPLICATES FROM FUNCTION DISPLAYBOOKS
+ * 
+ * -> Compare the generated ID with the attribute on the DOM element (will be added for the remove function)
+ *  - This comparison kinda scales badly -> a lot of books, would compare from beginning everytime
+ * 
+ * -> Get a Nodelist of Books -> for the length
+ *  - Start displaying books from the last index
+ *  - So everytime a new book is added, it is generated only that one
+ *    according the the nodelist length
+ *  - this should not affect removing the books (will be used self remove on the node itself)
+ */
