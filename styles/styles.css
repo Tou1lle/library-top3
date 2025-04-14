@@ -82,3 +82,28 @@ button {
   border: 1px solid var(--light-green);
   padding: 5px;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+.add-book {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 5rem;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
+}
+
+.add-book:hover {
+  background-color: var(--light-blue);
+  color: var(--light-grey);
+}
