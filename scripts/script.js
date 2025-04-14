@@ -74,13 +74,30 @@ function clearForm() {
   form.reset();
 }
 
+function createBookFromForm() {
+  let name = inputName.value;
+  let author = inputAuthor.value;
+  let pages = inputAuthor.value;
+  let read = true;
+
+  addBookToLibrary(name, author, pages, read);
+}
+
 addBookBtnDOM.addEventListener("click", openDialog);
 
 closeForm.addEventListener("click", (event) => {
   event.preventDefault();
   clearForm();
   closeDialog();
-})
+});
+
+addBookBtnForm.addEventListener("click", (event) => {
+  event.preventDefault();
+  createBookFromForm();
+  clearForm();
+  closeDialog();
+  displayBooks();
+});
 
 /* HARD CODED BOOKS */
 addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
