@@ -83,6 +83,10 @@ function createBookFromForm() {
   addBookToLibrary(name, author, pages, read);
 }
 
+function getBooksDOM() {
+  return document.querySelectorAll("div.book");
+} 
+
 addBookBtnDOM.addEventListener("click", openDialog);
 
 closeForm.addEventListener("click", (event) => {
