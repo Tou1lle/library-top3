@@ -76,6 +76,12 @@ function clearForm() {
 
 addBookBtnDOM.addEventListener("click", openDialog);
 
+closeForm.addEventListener("click", (event) => {
+  event.preventDefault();
+  clearForm();
+  closeDialog();
+})
+
 /* HARD CODED BOOKS */
 addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
 addBookToLibrary("Game of Thrones", "R. R. Martin", 600, false);
