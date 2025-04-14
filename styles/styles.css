@@ -110,4 +110,42 @@ button:hover {
 
 dialog {
   margin: auto;
+  width: 300px;
+}
+
+::backdrop {
+  background-color: #000;
+  opacity: 0.6;
+}
+
+form h1 {
+  font-size: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+}
+
+button.form-add {
+  margin-bottom: 10px;
+  border: none;
+  background-color: var(--dark-green);
+  color: var(--light-grey);
+}
+
+button.form-close {
+  background-color: var(--dark-blue);
+  color: var(--light-grey);
 }
