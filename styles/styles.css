@@ -107,3 +107,7 @@ button:hover {
   background-color: var(--light-blue);
   color: var(--light-grey);
 }
+
+dialog {
+  margin: auto;
+}

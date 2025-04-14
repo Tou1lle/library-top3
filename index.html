@@ -14,7 +14,24 @@
   </div>
   <button class="add-book">+</button>
   <dialog>
-    <form action=""></form>
+    <form action="" method="post">
+      <h1>Add a book!</h1>
+      <div>
+        <label for="form-name">Name of the book:</label>
+        <input type="text" id="form-name" name="book-name">
+      </div>
+      <div>
+        <label for="form-author">Name of the author:</label>
+        <input type="text" id="form-author" name="book-author">
+      </div>
+      <div>
+        <label for="book-pages">Number of pages:</label>
+        <input type="tel" id="book-pages" name="book-pages">
+      </div>
+      <label for="book-read">Have you read it?
+        <input type="checkbox">
+      </label>
+    </form>
   </dialog>
   <footer>&copy; Touille Black</footer>
 </body>
