@@ -82,7 +82,7 @@ function clearForm() {
 function createBookFromForm() {
   let name = inputName.value;
   let author = inputAuthor.value;
-  let pages = inputAuthor.value;
+  let pages = inputPages.value;
   let read = true;
 
   addBookToLibrary(name, author, pages, read);
@@ -120,11 +120,11 @@ addBookBtnForm.addEventListener("click", (event) => {
 });
 
 /* HARD CODED BOOKS */
-addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
-addBookToLibrary("Game of Thrones", "R. R. Martin", 600, false);
-addBookToLibrary("Blue Lock", "Mangaka", 20, true);
+//addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
+//addBookToLibrary("Game of Thrones", "R. R. Martin", 600, false);
+//addBookToLibrary("Blue Lock", "Mangaka", 20, true);
 
-displayBooks();
+//displayBooks();
 
 /**
  * DUPLICATES FROM FUNCTION DISPLAYBOOKS
