@@ -65,6 +65,7 @@ function displayBooks() {
 
     checkRead(book, buttonReadDOM);
     buttonReadDOM.addEventListener("click", toggleRead);
+    removeBookDOM.addEventListener("click", getIDClicked);
 
     bookDOM.append(nameDOM, authorDOM, pagesDOM, buttonContainerDOM);
     buttonContainerDOM.append(buttonReadDOM, removeBookDOM);
@@ -124,6 +125,11 @@ function getBookIDsDOM() {
   });
 
   return createdIDs;
+}
+
+function getIDClicked(e) {
+  console.log(e.currentTarget.parentNode.parentNode.dataset.id)
+  return e.currentTarget.parentNode.parentNode.dataset.id;
 }
 
 addBookBtnDOM.addEventListener("click", openDialog);
