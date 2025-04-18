@@ -46,6 +46,7 @@ function displayBooks() {
     const pagesDOM = document.createElement("p");
     const buttonContainerDOM = document.createElement("div");
     const buttonReadDOM = document.createElement("button");
+    const removeBookDOM = document.createElement("button");
 
     bookDOM.classList.add("book");
     nameDOM.classList.add("book-name");
@@ -54,14 +55,16 @@ function displayBooks() {
     buttonContainerDOM.classList.add("button-container");
     buttonReadDOM.classList.add("book-read");
     bookDOM.dataset.id = book.id;
+    removeBookDOM.classList.add("remove-self-btn")
 
     nameDOM.textContent = book.name;
     authorDOM.textContent = book.author;
     pagesDOM.textContent = book.pages;
     buttonReadDOM.textContent = book.read === true ? "READ" : "NOT READ";
+    removeBookDOM.textContent = "REMOVE ME:(";
 
     bookDOM.append(nameDOM, authorDOM, pagesDOM, buttonContainerDOM);
-    buttonContainerDOM.append(buttonReadDOM);
+    buttonContainerDOM.append(buttonReadDOM, removeBookDOM);
 
     libraryDOM.appendChild(bookDOM);
   })

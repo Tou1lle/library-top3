@@ -5,6 +5,7 @@
   --dark-green: #16A085;
   --dark-blue: #2C3E50;
   --happy-font: "atma-happy", Arial, Helvetica, sans-serif;
+  --red-remove: #c90000;
 }
 
 @font-face {
@@ -148,4 +149,14 @@ button.form-add {
 button.form-close {
   background-color: var(--dark-blue);
   color: var(--light-grey);
+}
+
+.remove-self-btn {
+  background-color: var(--red-remove);
+  color: var(--light-grey);
+  opacity: 0.6;
+}
+
+.remove-self-btn:hover {
+  opacity: 1;
 }
