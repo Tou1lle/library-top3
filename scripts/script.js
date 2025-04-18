@@ -35,7 +35,11 @@ function addBookToLibrary(name, author, pages, read) {
 }
 
 function displayBooks() {
+  const alreadyCreated = getBookIDsDOM();
+
   bookLibrary.forEach(book => {
+    if (alreadyCreated.includes(book.id)) return;
+
     const bookDOM = document.createElement("div");
     const nameDOM = document.createElement("p");
     const authorDOM = document.createElement("p");
