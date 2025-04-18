@@ -121,4 +121,9 @@ displayBooks();
  *  - So everytime a new book is added, it is generated only that one
  *    according the the nodelist length
  *  - this should not affect removing the books (will be used self remove on the node itself)
+ * 
+ * -> Get array list of the IDs from created Nodes
+ *  - when using the display function, check if the ID is already in some Node
+ *  - If yes, then dont create the Node again
+ *  - This may be worse on memory, but seems more consistent by checking everytime
  */
