@@ -49,6 +49,7 @@ function displayBooks() {
     pagesDOM.classList.add("book-pages");
     buttonContainerDOM.classList.add("button-container");
     buttonReadDOM.classList.add("book-read");
+    bookDOM.dataset.id = book.id;
 
     nameDOM.textContent = book.name;
     authorDOM.textContent = book.author;
