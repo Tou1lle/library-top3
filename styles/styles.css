@@ -160,3 +160,8 @@ button.form-close {
 .remove-self-btn:hover {
   opacity: 1;
 }
+
+button.book-read.positive-read {
+  background-color: var(--light-green);
+  color: var(--light-grey);
+}

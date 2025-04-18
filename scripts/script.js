@@ -63,6 +63,9 @@ function displayBooks() {
     buttonReadDOM.textContent = book.read === true ? "READ" : "NOT READ";
     removeBookDOM.textContent = "REMOVE ME:(";
 
+    checkRead(book, buttonReadDOM);
+    buttonReadDOM.addEventListener("click", toggleRead);
+
     bookDOM.append(nameDOM, authorDOM, pagesDOM, buttonContainerDOM);
     buttonContainerDOM.append(buttonReadDOM, removeBookDOM);
 
@@ -86,9 +89,26 @@ function createBookFromForm() {
   let name = inputName.value;
   let author = inputAuthor.value;
   let pages = inputPages.value;
-  let read = true;
+  let read = inputRead.checked;
 
   addBookToLibrary(name, author, pages, read);
+}
+
+function checkRead(book, buttonRead) {
+  if (book.read === true) {
+    buttonRead.classList.add("positive-read");
+  }
+}
+
+function toggleRead(e) {
+  const btn = e.currentTarget;
+  btn.classList.toggle("positive-read")
+
+  if (btn.classList.contains("positive-read")) {
+    btn.textContent = "READ";
+  } else {
+    btn.textContent = "NOT READ";
+  }
 }
 
 function getBooksDOM() {
