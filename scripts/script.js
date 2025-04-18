@@ -86,7 +86,18 @@ function createBookFromForm() {
 
 function getBooksDOM() {
   return document.querySelectorAll("div.book");
-} 
+}
+
+function getBookIDsDOM() {
+  const booksDOM = getBooksDOM();
+  const booksArr = Array.from(booksDOM);
+
+  const createdIDs = booksArr.map((book) => {
+    return book.dataset.id;
+  });
+
+  return createdIDs;
+}
 
 addBookBtnDOM.addEventListener("click", openDialog);
 
