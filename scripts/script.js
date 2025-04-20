@@ -65,7 +65,17 @@ function displayBooks() {
 
     checkRead(book, buttonReadDOM);
     buttonReadDOM.addEventListener("click", toggleRead);
-    removeBookDOM.addEventListener("click", getIDClicked);
+    
+    removeBookDOM.addEventListener("click", event => {
+      getIndexOfBook(book);
+    });
+
+    /*
+    removeBookDOM.addEventListener("click", event => {
+      const currentID = getIDClicked(event);
+      
+    });
+    */
 
     bookDOM.append(nameDOM, authorDOM, pagesDOM, buttonContainerDOM);
     buttonContainerDOM.append(buttonReadDOM, removeBookDOM);
@@ -130,6 +140,11 @@ function getBookIDsDOM() {
 function getIDClicked(e) {
   console.log(e.currentTarget.parentNode.parentNode.dataset.id)
   return e.currentTarget.parentNode.parentNode.dataset.id;
+}
+
+function getIndexOfBook(book) {
+  console.log(bookLibrary.map(book => book.id).indexOf(book.id));
+  return bookLibrary.map(book => book.id).indexOf(book.id);
 }
 
 addBookBtnDOM.addEventListener("click", openDialog);
