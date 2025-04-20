@@ -67,7 +67,9 @@ function displayBooks() {
     buttonReadDOM.addEventListener("click", toggleRead);
     
     removeBookDOM.addEventListener("click", event => {
-      getIndexOfBook(book);
+      const index = getIndexOfBook(book);
+      bookLibrary.splice(index, 1);
+      event.currentTarget.parentNode.parentNode.remove();
     });
 
     /*
