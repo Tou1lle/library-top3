@@ -28,6 +28,10 @@ function Book(name, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
+Book.prototype.changeReadStatus = function() {
+  this.read = !this.read;
+}
+
 function addBookToLibrary(name, author, pages, read) {
   const book = new Book(name, author, pages, read);
 
@@ -64,7 +68,9 @@ function displayBooks() {
     removeBookDOM.textContent = "REMOVE ME:(";
 
     checkRead(book, buttonReadDOM);
-    buttonReadDOM.addEventListener("click", toggleRead);
+    buttonReadDOM.addEventListener("click", event =>{
+      toggleRead(book, event);
+    });
     
     removeBookDOM.addEventListener("click", event => {
       const index = getIndexOfBook(book);
@@ -113,7 +119,8 @@ function checkRead(book, buttonRead) {
   }
 }
 
-function toggleRead(e) {
+function toggleRead(book, e) {
+  book.changeReadStatus();
   const btn = e.currentTarget;
   btn.classList.toggle("positive-read")
 
