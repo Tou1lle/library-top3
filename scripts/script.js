@@ -6,6 +6,7 @@ const dialogDOM = document.querySelector("dialog");
 const inputName = document.querySelector("input#form-name");
 const inputAuthor = document.querySelector("input#form-author");
 const inputPages = document.querySelector("input#book-pages");
+const requiredInputs = [inputAuthor, inputName, inputPages];
 const inputRead = document.querySelector("input[type='checkbox']");
 const addBookBtnForm = document.querySelector("button.form-add");
 const closeForm = document.querySelector("button.form-close");
@@ -28,7 +29,7 @@ function Book(name, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
-Book.prototype.changeReadStatus = function() {
+Book.prototype.changeReadStatus = function () {
   this.read = !this.read;
 }
 
@@ -68,10 +69,10 @@ function displayBooks() {
     removeBookDOM.textContent = "REMOVE ME:(";
 
     checkRead(book, buttonReadDOM);
-    buttonReadDOM.addEventListener("click", event =>{
+    buttonReadDOM.addEventListener("click", event => {
       toggleRead(book, event);
     });
-    
+
     removeBookDOM.addEventListener("click", event => {
       const index = getIndexOfBook(book);
       bookLibrary.splice(index, 1);
@@ -164,13 +165,72 @@ closeForm.addEventListener("click", (event) => {
   closeDialog();
 });
 
-addBookBtnForm.addEventListener("click", (event) => {
-  event.preventDefault();
+form.addEventListener("submit", (event) => {
+  //enteredBookName();
   createBookFromForm();
   clearForm();
   closeDialog();
   displayBooks();
+  event.preventDefault();
 });
+
+const inputTypes = {
+  "form-name": "Please enter a name for the book Nigga",
+  "form-author": "Enter the author of the book please Bitch",
+  "book-pages": "Book can't have no pages right? Dumbass"
+}
+
+
+requiredInputs.forEach(input => {
+  input.addEventListener("invalid", e => {
+    const inputType = e.currentTarget.id;
+    const inputValue = input.value.trim();
+
+    input.setCustomValidity("");
+
+    if (input.validity.valueMissing) {
+      input.setCustomValidity(inputTypes[inputType]);
+    } else if (inputType === "book-pages") {
+      checkEnteredPages(input, inputValue);
+    }
+  });
+});
+
+
+requiredInputs.forEach(input => {
+  input.addEventListener("input", e => {
+    const inputType = e.currentTarget.id;
+    const inputValue = input.value.trim();
+
+    input.setCustomValidity("");
+
+    if (input.validity.valueMissing) {
+      input.setCustomValidity(inputTypes[inputType]);
+    } else if (inputType === "book-pages") {
+      checkEnteredPages(input, inputValue);
+    }
+  });
+});
+
+function checkEnteredPages(input, inputValue) {
+  if (isNaN(inputValue) || inputValue === "") {
+    input.setCustomValidity("Please enter a number MONKEY");
+  }
+  if (inputValue <= 0) {
+    input.setCustomValidity("Pages can't be negative you DUMBASS");
+  }
+}
+/*
+inputName.addEventListener("invalid", enteredBookName)
+
+function enteredBookName() {
+  if (inputName.validity.valueMissing) {
+    inputName.setCustomValidity("Please enter a name for the book Nigga!");
+  } else {
+    inputName.setCustomValidity("");
+  }
+}
+*/
 
 /* HARD CODED BOOKS */
 //addBookToLibrary("Harry Potter", "J. K. Rowlings", 444, false);
