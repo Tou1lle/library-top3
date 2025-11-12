@@ -183,32 +183,14 @@ const inputTypes = {
 
 requiredInputs.forEach(input => {
   input.addEventListener("invalid", e => {
-    const inputType = e.currentTarget.id;
-    const inputValue = input.value.trim();
-
-    input.setCustomValidity("");
-
-    if (input.validity.valueMissing) {
-      input.setCustomValidity(inputTypes[inputType]);
-    } else if (inputType === "book-pages") {
-      checkEnteredPages(input, inputValue);
-    }
+    checkValidInputs(input, e);
   });
 });
 
 
 requiredInputs.forEach(input => {
   input.addEventListener("input", e => {
-    const inputType = e.currentTarget.id;
-    const inputValue = input.value.trim();
-
-    input.setCustomValidity("");
-
-    if (input.validity.valueMissing) {
-      input.setCustomValidity(inputTypes[inputType]);
-    } else if (inputType === "book-pages") {
-      checkEnteredPages(input, inputValue);
-    }
+    checkValidInputs(input, e);
   });
 });
 
@@ -218,6 +200,19 @@ function checkEnteredPages(input, inputValue) {
   }
   if (inputValue <= 0) {
     input.setCustomValidity("Pages can't be negative you DUMBASS");
+  }
+}
+
+function checkValidInputs(input, e) {
+  const inputType = e.currentTarget.id;
+  const inputValue = input.value.trim();
+
+  input.setCustomValidity("");
+
+  if (input.validity.valueMissing) {
+    input.setCustomValidity(inputTypes[inputType]);
+  } else if (inputType === "book-pages") {
+    checkEnteredPages(input, inputValue);
   }
 }
 /*
